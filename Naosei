@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Leno Brega - Player Garantido</title>
+<style>
+  body {
+    background: #111;
+    color: #eee;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+  }
+  h1 {
+    margin-bottom: 40px;
+    color: #ff4c4c;
+  }
+  button {
+    background-color: #ff4c4c;
+    border: none;
+    padding: 15px 25px;
+    margin: 10px;
+    font-size: 1.1em;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(255, 76, 76, 0.5);
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #ff1a1a;
+  }
+  audio {
+    margin-top: 30px;
+    width: 80%;
+    outline: none;
+  }
+</style>
+</head>
+<body>
+
+<h1>Leno Brega</h1>
+
+<div id="botoes"></div>
+
+<audio id="player" controls></audio>
+
+<script>
+  const musicas = [
+    { nome: "giletao", arquivo: "giletao.mp3" },
+    { nome: "relembrando fodas", arquivo: "relembrando_fodas.mp3" },
+    { nome: "estrupadora", arquivo: "estrupadora.mp3" },
+    { nome: "rapariga feia fodida e acabada", arquivo: "rapariga_feia_fodida_e_acabada.mp3" },
+    { nome: "mulher peidona", arquivo: "mulher_peidona.mp3" },
+    { nome: "não quisestes me dar", arquivo: "nao_quisestes_me_dar.mp3" }
+  ];
+
+  const baseURL = 'https://raw.githubusercontent.com/ChatGPT-temp-leno-brega/music/main/';
+  const botoesDiv = document.getElementById('botoes');
+  const player = document.getElementById('player');
+
+  musicas.forEach(({nome, arquivo}) => {
+    const btn = document.createElement('button');
+    btn.textContent = nome;
+    btn.onclick = () => {
+      player.src = baseURL + arquivo;
+      player.play();
+    };
+    botoesDiv.appendChild(btn);
+  });
+</script>
+
+</body>
+</html>
